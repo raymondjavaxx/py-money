@@ -29,7 +29,7 @@ class Money:
 
         return self._currency
 
-    def __hash__(self) -> str:
+    def __hash__(self) -> int:
         return hash((self._amount, self._currency))
 
     def __repr__(self) -> str:
