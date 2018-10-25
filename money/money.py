@@ -6,10 +6,11 @@ from babel.numbers import format_currency
 from .currency import Currency, CurrencyHelper
 from .exceptions import InvalidAmountError, CurrencyMismatchError, InvalidOperandError
 
+
 class Money:
     """Class representing a monetary amount"""
 
-    def __init__(self, amount: str, currency: Currency=Currency.USD) -> None:
+    def __init__(self, amount: str, currency: Currency = Currency.USD) -> None:
         self._amount = Decimal(amount)
         self._currency = currency
 
@@ -156,7 +157,7 @@ class Money:
     def __abs__(self) -> 'Money':
         return self.__class__(str(abs(self._amount)), self._currency)
 
-    def format(self, locale: str='en_US') -> str:
+    def format(self, locale: str = 'en_US') -> str:
         """Returns a string of the currency formatted for the specified locale"""
 
         return format_currency(self.amount, self.currency.name, locale=locale)
@@ -169,9 +170,10 @@ class Money:
     def _round(amount: Decimal, currency: Currency) -> Decimal:
         sub_units = CurrencyHelper.sub_unit_for_currency(currency)
         # rstrip is necessary because quantize treats 1. differently from 1.0
-        rounded_to_subunits = amount.quantize(Decimal(str(1 / sub_units).rstrip('0')),\
+        rounded_to_subunits = amount.quantize(Decimal(str(1 / sub_units).rstrip('0')),
                                               rounding=ROUND_HALF_UP)
+
         decimal_precision = CurrencyHelper.decimal_precision_for_currency(currency)
-        return rounded_to_subunits.quantize(\
-                   Decimal(str(1 / (10 ** decimal_precision)).rstrip('0')),\
+        return rounded_to_subunits.quantize(
+                   Decimal(str(1 / (10 ** decimal_precision)).rstrip('0')),
                    rounding=ROUND_HALF_UP)

@@ -9,6 +9,7 @@ from money.exceptions import InvalidAmountError, CurrencyMismatchError, InvalidO
 # pylint: disable=unneeded-not,expression-not-assigned,no-self-use,missing-docstring
 # pylint: disable=misplaced-comparison-constant,singleton-comparison
 
+
 class TestMoney:
     """Money tests"""
 

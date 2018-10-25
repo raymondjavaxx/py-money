@@ -2,7 +2,8 @@
 
 from enum import Enum
 
-#pylint: disable=too-many-lines
+# pylint: disable=too-many-lines
+
 
 class Currency(Enum):
     """Enumerates all supported currencies"""
