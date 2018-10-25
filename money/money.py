@@ -3,9 +3,8 @@
 from typing import Union
 from decimal import Decimal, ROUND_HALF_UP
 from babel.numbers import format_currency
-from money.currency import Currency
-from money.currency import CurrencyHelper
-from money.exceptions import InvalidAmountError, CurrencyMismatchError, InvalidOperandError
+from .currency import Currency, CurrencyHelper
+from .exceptions import InvalidAmountError, CurrencyMismatchError, InvalidOperandError
 
 class Money:
     """Class representing a monetary amount"""

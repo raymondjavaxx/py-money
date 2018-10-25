@@ -24,8 +24,8 @@ A Money object can be created with an amount (specified as a string) and a curre
 
 .. code:: python
 
-    >>> from money.money import Money
-    >>> from money.currency import Currency
+    >>> from money import Money
+    >>> from money import Currency
     >>> m = Money('9.95', Currency.GBP)
     >>> m
     GBP 9.95
